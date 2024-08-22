@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+<!--    I will ask the object of this class and the Spring will provide it -->
+
+    <bean id="myBean" class="com.example.bean.MyBean">
+        <property name="message" value="I am new to Bean class"/>
+
+    </bean>
+<!-- property is a tag used here to initialize message with a value for the bean-->
+</beans>

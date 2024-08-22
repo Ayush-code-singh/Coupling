@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    Bean Definitions here-->
+<!--    Dependent Bean : Specification on the Car class -->
+<!--    These beans are initialized by setter Injection -->
+    <bean id="carSpecification" class="com.example.setter.injection.Specification">
+        <property name="make" value="Toyota"/>
+        <property name="model" value="Corolla"/>
+    </bean>
+
+<!--    For setter Injection The only change you need is instead of
+        assigning the values we have to give the reference of the bean .        -->
+
+<!--    In case of setter Injection : We can't use constructor injection
+        Name of property is specification and use reference. Becoz already  created beans
+
+-->
+    <bean id="myCar" class="com.example.setter.injection.Car">
+        <property name="specification" ref="carSpecification"/>
+    </bean>
+
+</beans>

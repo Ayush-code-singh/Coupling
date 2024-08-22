@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    Bean Definitions here-->
+    <bean id="carSpecification" class="com.example.constructor.injection.Specification">
+        <property name="make" value="Toyota"/>
+        <property name="model" value="Corolla"/>
+    </bean>
+
+<!--    Car needs specifications as dependency-->
+<!--    Constructor Injection : use constructor-arg  where arg sets argument for the constructor-->
+<!--     Then Set the reference for this-->
+
+    <bean id="myCar" class="com.example.constructor.injection.Car">
+        <constructor-arg value="carSpecification"/>
+    </bean>
+
+
+</beans>

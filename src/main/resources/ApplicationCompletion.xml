@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+<!--    The Three different provider for beans are created here.-->
+
+<!--    Bean 1 for UserDataProvider-->
+
+    <bean id="userDataProvider" class="org.ioc.coupling.UserDatabaseProvider"/>
+
+<!--    Bean 2 for NewDataProvider-->
+    <bean id="newDataProvider" class="org.ioc.coupling.NewDatabaseProvider"/>
+
+<!--    Bean 3 for Web Service Data Provider-->
+    <bean id="webServiceDataProvider" class="org.ioc.coupling.WebServiceDataProvider"/>
+
+<!--    Three Different implementation of the provider.
+        During the run-time I may need the use of any the provider-->
+    <bean id="userManagerWithUserDataProvider" class="org.ioc.coupling.UserManager">
+        <constructor-arg ref="userDataProvider"/>
+    </bean>
+<!--Class will be of User Manager with constructor passing of the object-->
+    <bean id="userManagerWithNewDataProvider" class="org.ioc.coupling.UserManager">
+        <constructor-arg ref="newDataProvider"/>
+    </bean>
+
+    <bean id="userManagerWithWebServiceProvider" class="org.ioc.coupling.UserManager">
+        <constructor-arg ref="webServiceDataProvider"/>
+    </bean>
+
+</beans>
